@@ -32,6 +32,8 @@ scrape_configs:
   static_configs:
   - targets:
     - docker.for.mac.localhost:9100
+    labels:
+      instance: 'macmini'
 
 - job_name: unifipoller
   scrape_interval: 15s
@@ -48,3 +50,5 @@ scrape_configs:
   static_configs:
   - targets:
     - docker.for.mac.localhost:5555
+    labels:
+      instance: 'obs-metrics-exporter'
