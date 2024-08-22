@@ -1,0 +1,65 @@
+services:
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prom-data:/prometheus
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+      #- GF_SERVER_ROOT_URL=https://grafana.x.x.org/
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources
+      - grafana-storage:/var/lib/grafana
+
+  snmp_exporter:
+    container_name: snmp_exporter
+    image: quay.io/prometheus/snmp-exporter:latest
+    ports:
+      - 9116:9116
+    restart: unless-stopped
+
+  # Unifi Controller Exporter
+  unpoller:
+    container_name: unpoller
+    image: ghcr.io/unpoller/unpoller:latest
+    ports:
+      - 9130:9130
+    restart: unless-stopped
+    environment:
+      - UP_UNIFI_DEFAULT_USER=${UNIFI_USER}
+      - UP_UNIFI_DEFAULT_PASS=${UNIFI_PASS}
+      - UP_UNIFI_DEFAULT_URL=${UNIFI_URL}
+    # volumes:
+    #   - ./unpoller/up.conf:/etc/unpoller/up.conf
+
+  # OBS Exporter
+  obs-exporter:
+    container_name: obs-exporter
+    image: ghcr.io/jimdavis66/obs-exporter:latest
+    ports:
+      - 5555:5555
+    restart: unless-stopped
+    environment:
+      - OBS_HOST=${OBS_HOST}
+      - OBS_PORT=${OBS_PORT}
+      - OBS_PASSWORD=${OBS_PASSWORD}
+      - LISTEN_PORT=${OBS_LISTEN_PORT}
+
+volumes:
+  prom-data:
+  grafana-storage:
