@@ -597,7 +597,6 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "description": "Spikes on this graph that are missing from the LAN graph indicate gateway-originated traffic, like a scheduled speed test. Rx is on the negative axis.",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -607,11 +606,11 @@
               "axisBorderShow": false,
               "axisCenteredZero": false,
               "axisColorMode": "text",
-              "axisLabel": "bytes / second",
+              "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
               "drawStyle": "line",
-              "fillOpacity": 10,
+              "fillOpacity": 25,
               "gradientMode": "none",
               "hideFrom": {
                 "legend": false,
@@ -620,12 +619,12 @@
               },
               "insertNulls": false,
               "lineInterpolation": "linear",
-              "lineWidth": 3,
+              "lineWidth": 1,
               "pointSize": 5,
               "scaleDistribution": {
                 "type": "linear"
               },
-              "showPoints": "never",
+              "showPoints": "auto",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
@@ -649,93 +648,27 @@
                 }
               ]
             },
-            "unit": "Bps"
+            "unit": "bps"
           },
-          "overrides": [
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "gateway wan Bytes Rx"
-              },
-              "properties": [
-                {
-                  "id": "color",
-                  "value": {
-                    "fixedColor": "dark-green",
-                    "mode": "fixed"
-                  }
-                }
-              ]
-            },
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "gateway wan Bytes Tx"
-              },
-              "properties": [
-                {
-                  "id": "color",
-                  "value": {
-                    "fixedColor": "dark-purple",
-                    "mode": "fixed"
-                  }
-                }
-              ]
-            },
-            {
-              "matcher": {
-                "id": "byRegexp",
-                "options": "/Rx$/"
-              },
-              "properties": [
-                {
-                  "id": "custom.transform",
-                  "value": "negative-Y"
-                }
-              ]
-            },
-            {
-              "matcher": {
-                "id": "byValue",
-                "options": {
-                  "op": "gte",
-                  "reducer": "allIsNull",
-                  "value": 0
-                }
-              },
-              "properties": [
-                {
-                  "id": "custom.hideFrom",
-                  "value": {
-                    "legend": true,
-                    "tooltip": true,
-                    "viz": false
-                  }
-                }
-              ]
-            }
-          ]
+          "overrides": []
         },
         "gridPos": {
-          "h": 10,
+          "h": 8,
           "w": 24,
           "x": 0,
           "y": 12
         },
-        "id": 11,
+        "id": 12,
         "options": {
           "legend": {
-            "calcs": [
-              "lastNotNull",
-              "max"
-            ],
-            "displayMode": "table",
+            "calcs": [],
+            "displayMode": "list",
             "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "mode": "multi",
-            "sort": "desc"
+            "mode": "single",
+            "sort": "none"
           }
         },
         "targets": [
@@ -745,9 +678,9 @@
               "uid": "PBFA97CFB590B2093"
             },
             "editorMode": "code",
-            "expr": "rate(unpoller_device_wan_receive_bytes_total{name=\"Vine\"}[$__interval])",
-            "interval": "",
-            "legendFormat": "{{name}} {{port}} Bytes Rx",
+            "expr": "irate(ifInOctets{job=\"unifi-snmp\", ifDescr=\"eth8.2\"}[$__rate_interval])*8",
+            "instant": false,
+            "legendFormat": "Download",
             "range": true,
             "refId": "A"
           },
@@ -756,76 +689,20 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "editorMode": "code",
-            "expr": "rate(unpoller_device_wan_transmit_bytes_total{site_name=\"Default (default)\", name=\"Vine\"}[$__interval])",
-            "interval": "",
-            "legendFormat": "{{name}} {{port}} Bytes Tx",
-            "range": true,
-            "refId": "B"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
-            "editorMode": "code",
-            "expr": "unpoller_device_wan_transmit_rate_bytes{site_name=\"Default (default)\", name=\"Vine\"}",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "{{name}} {{port}} Bytes Tx",
-            "range": true,
-            "refId": "C"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
-            "editorMode": "code",
-            "expr": "unpoller_device_wan_receive_rate_bytes{site_name=\"Default (default)\", name=\"Vine\"}",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "{{name}} {{port}} Bytes Rx",
-            "range": true,
-            "refId": "D"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
-            "disableTextWrap": false,
-            "editorMode": "builder",
-            "expr": "rate(unpoller_device_wan_receive_bytes_total{instance=\"unpoller:9130\"}[$__rate_interval])",
-            "fullMetaSearch": false,
-            "hide": false,
-            "includeNullMetadata": false,
-            "instant": false,
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "E",
-            "useBackend": false
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
             "disableTextWrap": false,
             "editorMode": "code",
-            "expr": "rate(unpoller_device_wan_transmit_bytes_total{instance=\"unpoller:9130\"}[$__rate_interval])*-1",
+            "expr": "irate(ifOutOctets{job=\"unifi-snmp\", ifDescr=\"eth8.2\"}[$__rate_interval])*-8",
             "fullMetaSearch": false,
             "hide": false,
-            "includeNullMetadata": false,
+            "includeNullMetadata": true,
             "instant": false,
-            "legendFormat": "__auto",
+            "legendFormat": "Upload",
             "range": true,
-            "refId": "F",
+            "refId": "B",
             "useBackend": false
           }
         ],
-        "title": "WAN Throughput",
-        "transparent": true,
+        "title": "Internet Link",
         "type": "timeseries"
       },
       {
@@ -891,7 +768,7 @@
           "h": 8,
           "w": 24,
           "x": 0,
-          "y": 22
+          "y": 20
         },
         "id": 6,
         "options": {
@@ -987,6 +864,6 @@
     "timezone": "",
     "title": "OBS",
     "uid": "advk3qxxh9gcga",
-    "version": 8,
+    "version": 9,
     "weekStart": ""
   }
