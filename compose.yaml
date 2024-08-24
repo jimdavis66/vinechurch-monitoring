@@ -29,9 +29,13 @@ services:
   snmp_exporter:
     container_name: snmp_exporter
     image: quay.io/prometheus/snmp-exporter:latest
+    command:
+      - '--config.file=/config/snmp.yml'
     ports:
       - 9116:9116
     restart: unless-stopped
+    volumes:
+      - ./prometheus:/config
 
   # Unifi Controller Exporter
   unpoller:

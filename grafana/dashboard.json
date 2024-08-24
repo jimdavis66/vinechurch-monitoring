@@ -1,0 +1,992 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 5,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_active_fps{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Active FPS",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "bytes"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 4,
+          "y": 0
+        },
+        "id": 5,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_stream_status_output_bytes{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Stream Total Bytes",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 8,
+          "y": 0
+        },
+        "id": 7,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_output_skipped_frames{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Encoding Skipped Frames",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 12,
+          "y": 0
+        },
+        "id": 8,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_render_skipped_frames{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Render Skipped Frames",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 16,
+          "y": 0
+        },
+        "id": 9,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_stream_status_output_skipped_frames{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Network Skipped Frames",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 0.01
+                }
+              ]
+            },
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 20,
+          "y": 0
+        },
+        "id": 10,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_stream_status_output_skipped_frames{instance=\"$instance\"} / obs_stream_status_output_total_frames{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Network Skipped",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Frames",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 4
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "rate(obs_output_skipped_frames{instance=\"$instance\"}[$__rate_interval])",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "Encoding",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "rate(obs_render_skipped_frames{instance=\"$instance\"}[$__rate_interval])",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "Render",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "rate(obs_stream_status_output_skipped_frames{instance=\"$instance\"}[$__rate_interval])",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "Network",
+            "range": true,
+            "refId": "C",
+            "useBackend": false
+          }
+        ],
+        "title": "Skipped Frames",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "description": "Spikes on this graph that are missing from the LAN graph indicate gateway-originated traffic, like a scheduled speed test. Rx is on the negative axis.",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "bytes / second",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 3,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "Bps"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "gateway wan Bytes Rx"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "gateway wan Bytes Tx"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byRegexp",
+                "options": "/Rx$/"
+              },
+              "properties": [
+                {
+                  "id": "custom.transform",
+                  "value": "negative-Y"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byValue",
+                "options": {
+                  "op": "gte",
+                  "reducer": "allIsNull",
+                  "value": 0
+                }
+              },
+              "properties": [
+                {
+                  "id": "custom.hideFrom",
+                  "value": {
+                    "legend": true,
+                    "tooltip": true,
+                    "viz": false
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 24,
+          "x": 0,
+          "y": 12
+        },
+        "id": 11,
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "code",
+            "expr": "rate(unpoller_device_wan_receive_bytes_total{name=\"Vine\"}[$__interval])",
+            "interval": "",
+            "legendFormat": "{{name}} {{port}} Bytes Rx",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "code",
+            "expr": "rate(unpoller_device_wan_transmit_bytes_total{site_name=\"Default (default)\", name=\"Vine\"}[$__interval])",
+            "interval": "",
+            "legendFormat": "{{name}} {{port}} Bytes Tx",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "code",
+            "expr": "unpoller_device_wan_transmit_rate_bytes{site_name=\"Default (default)\", name=\"Vine\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "{{name}} {{port}} Bytes Tx",
+            "range": true,
+            "refId": "C"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "code",
+            "expr": "unpoller_device_wan_receive_rate_bytes{site_name=\"Default (default)\", name=\"Vine\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "{{name}} {{port}} Bytes Rx",
+            "range": true,
+            "refId": "D"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "rate(unpoller_device_wan_receive_bytes_total{instance=\"unpoller:9130\"}[$__rate_interval])",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": false,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "E",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "rate(unpoller_device_wan_transmit_bytes_total{instance=\"unpoller:9130\"}[$__rate_interval])*-1",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": false,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "F",
+            "useBackend": false
+          }
+        ],
+        "title": "WAN Throughput",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 22
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_cpu_usage{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "CPU",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "obs_memory_usage{instance=\"$instance\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "title": "OBS Resources",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "obs-metrics-exporter",
+            "value": "obs-metrics-exporter"
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "definition": "label_values(up,instance)",
+          "hide": 0,
+          "includeAll": false,
+          "multi": false,
+          "name": "instance",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values(up,instance)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "OBS",
+    "uid": "advk3qxxh9gcga",
+    "version": 8,
+    "weekStart": ""
+  }
