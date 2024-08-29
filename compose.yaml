@@ -64,6 +64,19 @@ services:
       - OBS_PASSWORD=${OBS_PASSWORD}
       - LISTEN_PORT=${OBS_LISTEN_PORT}
 
+  # UnifiOS network scheduler to limit bandwith for better livestreams
+  unifios-network-scheduler:
+    container_name: unifios-network-scheduler
+    image: ghcr.io/jimdavis66/unifios-network-scheduler:latest
+    restart: unless-stopped
+    environment:
+      - UNIFI_HOST=${UNIFI_HOST}
+      - UNIFI_USER=${UNIFI_USER}
+      - UNIFI_PASS=${UNIFI_PASS}
+      - UNLIMITED_GROUP_ID=${UNLIMITED_GROUP_ID}
+      - LIMITED_GROUP_ID=${LIMITED_GROUP_ID}
+      - WLAN_ID=${WLAN_ID}
+
 volumes:
   prom-data:
   grafana-storage:

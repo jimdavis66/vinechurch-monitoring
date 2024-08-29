@@ -21,4 +21,12 @@ OBS_HOST=hostname
 OBS_PORT=4455
 OBS_PASSWORD=websocketpassword
 OBS_LISTEN_PORT=5555
+
+# unifios-network-scheduler
+UNIFI_HOST=https://192.168.1.1:443
+UNIFI_USER=apiuser
+UNIFI_PASS=password
+UNLIMITED_GROUP_ID=62b29
+LIMITED_GROUP_ID=6646d
+WLAN_ID=66fea
 ```
