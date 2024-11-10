@@ -70,6 +70,7 @@ services:
     image: ghcr.io/jimdavis66/unifios-network-scheduler:latest
     restart: unless-stopped
     environment:
+      - TZ=Australia/Sydney
       - UNIFI_HOST=${UNIFI_HOST}
       - UNIFI_USER=${UNIFI_USER}
       - UNIFI_PASS=${UNIFI_PASS}
